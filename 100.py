@@ -141,3 +141,49 @@ print(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time())))
 time.sleep(1)
 TIME = datetime.datetime.now()
 print(TIME.strftime("%Y.%m.%d %H-%M-%S"))
+
+# 011 古典问题：
+# 有一对兔子，从出生后第3个月起每个月都生一对兔子，
+# 小兔子长到第三个月后每个月又生一对兔子，
+# 假如兔子都不死，问每个月的兔子总数为多少？
+
+f1 = 1
+f2 = 1
+list_num = []
+for i in range(15):
+    list_num.append(f1)
+    list_num.append(f2)
+    f1 += f2
+    f2 += f1
+print(list_num)
+
+# 012 判断101-200之间有多少个素数，并输出所有素数。
+
+def prime_number(n):
+    prime = True
+    for i in range(2, n):
+        if n % i == 0:
+            prime = False
+    return prime
+
+
+total = 0
+for num in range(101, 201):
+    prime = prime_number(num)
+    if prime == True:
+        print(num)
+        total += 1
+
+print(total)
+
+# 013 打印出所有的"水仙花数"，
+# 所谓"水仙花数"是指一个三位数，
+# 其各位数字立方和等于该数本身。例如：153是一个"水仙花数"，因为153=1的三次方＋5的三次方＋3的三次方。
+
+for i in range(1, 10):
+    for j in range(0, 10):
+        for k in range(0, 10):
+            if 100 * i + 10 * j + k == i ** 3 + j ** 3 + k ** 3:
+                print(100 * i + 10 * j + k)
+
+
